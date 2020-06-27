@@ -107,7 +107,7 @@ short writeDecNumberInSystemN(unsigned int number, char* output, unsigned int ou
 
 void fprintFlags(FILE* filestream, Flags* target, PrintStyle style)
 {
-	short outputLength = 9;
+	short outputLength = 9;    // 8 flags + '\0'.
 	char output[outputLength];
 	switch (style)
 	{
@@ -216,8 +216,8 @@ void fprintFlags(FILE* filestream, Flags* target, PrintStyle style)
 	else
 	{
 		fprintf(filestream, "--------------FLAGS--------------\n"
-		        			"|f:7|f:6|f:5|f:4|f:3|f:2|f:1|f:0|\n"
-		        			"---------------------------------\n");
+							"|f:7|f:6|f:5|f:4|f:3|f:2|f:1|f:0|\n"
+							"---------------------------------\n");
 		for (short i = 0; i < outputLength - 1; i++)
 		{
 			fprintf(filestream, "| %c ", output[i]);
