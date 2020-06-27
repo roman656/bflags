@@ -35,15 +35,15 @@ short writeDecNumberInSystemN(unsigned int number, char* output, unsigned int ou
 
 	/* Вычисление результата. */
 	unsigned int divRemainder;
-    for (unsigned int i = outputLength - 2; number > 0; i--)
-    {
+	for (unsigned int i = outputLength - 2; number > 0; i--)
+	{
 		if (i < 0)    // Место для записи результата кончилось.
 		{
 			return -2;
 		}
-    	divRemainder = number % system;
-        number /= system;
-    	switch (divRemainder)
+		divRemainder = number % system;
+		number /= system;
+		switch (divRemainder)
 		{
 			case 10:
 			{
@@ -101,7 +101,7 @@ short writeDecNumberInSystemN(unsigned int number, char* output, unsigned int ou
 			}
 		}
 	}
-	
+
 	return 0;
 }
 
