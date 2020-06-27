@@ -1,8 +1,29 @@
-#ifndef WFLAGS_H_INCLUDED
-#define WFLAGS_H_INCLUDED
+/*
+ * bflags (Flags library).
+ * Copyright (C) 2020 Roman S <romanstrah@mail.ru>
+ * 
+ * bflags is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * bflags is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along
+ * with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
+#ifndef BFLAGS_H_INCLUDED
+#define BFLAGS_H_INCLUDED
+
+/*-----------Библиотеки-начало----------*/
 #include <stdio.h>
+/*-----------Библиотеки-конец-----------*/
 
+/*----------Перечисления-начало---------*/
 typedef enum FlagsValues
 {
 	NONE,											//0000 0000
@@ -40,12 +61,16 @@ typedef enum PrintStyle
 	ENNEADECIMAL,
 	VIGESIMAL
 } PrintStyle;
+/*----------Перечисления-конец----------*/
 
+/*-----------Структуры-начало-----------*/
 typedef struct Flags
 {
 	unsigned char flags;
 } Flags;
+/*------------Структуры-конец-----------*/
 
+/*-------Функции/процедуры-начало-------*/
 short writeDecNumberInSystemN(unsigned int number, char* output, unsigned int outputLength, unsigned short system);
 void fprintFlags(FILE* filestream, Flags* target, PrintStyle style);
 void printFlags(Flags* target, PrintStyle style);
@@ -55,5 +80,6 @@ void setOnExactFlags(Flags* target, FlagsValues flags);
 void setOffExactFlags(Flags* target, FlagsValues flags);
 short isSetOnExactFlags(Flags* target, FlagsValues flags);
 short isSetOffExactFlags(Flags* target, FlagsValues flags);
+/*--------Функции/процедуры-конец-------*/
 
-#endif // WFLAGS_H_INCLUDED
+#endif // BFLAGS_H_INCLUDED
